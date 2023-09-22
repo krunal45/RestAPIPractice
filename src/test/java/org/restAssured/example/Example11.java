@@ -23,8 +23,6 @@ public class Example11 {
 
         JsonPath jsonPath = response.jsonPath();
         jsonPath.getString("status").equals("success");
-        LinkedHashMap<String, Object> jsonData = jsonPath.getJsonObject("data");
-
 
         String name = jsonPath.getString("data.name");
         String salary = jsonPath.getString("data.salary");
