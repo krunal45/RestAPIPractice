@@ -1,0 +1,24 @@
+{
+  "idempotency_key": "3acb2466-3b30-420c-bd86-3e7fe7bc69bb",
+  "source_id": "d2e1aLJjAFABSLD7se39xLU6ivfZY",
+  "amount_money": {
+    "amount": 10,
+    "currency": "GBP"
+  },
+  "app_fee_money": {
+    "currency": "GBP",
+    "amount": 10
+  },
+  "autocomplete": true,
+  "buyer_email_address": "krunal45@outlook.com",
+  "cash_details": {
+    "buyer_supplied_money": {
+      "amount": 10,
+      "currency": "GBP"
+    },
+    "change_back_money": {
+      "amount": 10,
+      "currency": "GBP"
+    }
+  }
+}
