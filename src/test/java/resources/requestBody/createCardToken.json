@@ -1,0 +1,20 @@
+{
+  "type": "card",
+  "number": "4659105569051157",
+  "expiry_month": 6,
+  "expiry_year": 2026,
+  "name": "Bruce Wayne",
+  "cvv": "956",
+  "billing_address": {
+    "address_line1": "Checkout.com",
+    "address_line2": "90 Tottenham Court Road",
+    "city": "London",
+    "state": "st",
+    "zip": "W1T 4TJ",
+    "country": "GB"
+  },
+  "phone": {
+    "country_code": "+1",
+    "number": "415 555 2671"
+  }
+}

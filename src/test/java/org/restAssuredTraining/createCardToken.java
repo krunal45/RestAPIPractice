@@ -1,7 +1,12 @@
 package org.restAssuredTraining;
 
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.testng.annotations.Test;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.HashMap;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -111,7 +116,7 @@ public class createCardToken {
     }
 
     //Creating requestBody using POJO class.
-    @Test(priority = 3)
+    @Test(priority = 3,enabled = false)
     void createToken3(){
     POJOTestCreateClass data = new POJOTestCreateClass();
     data.setType("card");
@@ -140,6 +145,38 @@ public class createCardToken {
                 .contentType("application/json")
                 .header("Authorization","Bearer pk_sbox_s4gepzrfsicj2af7il4wb25fnm7")
                 .body(data)
+                .when().post("https://api.sandbox.checkout.com/tokens")
+                .then().statusCode(201)
+                .body("expiry_month", equalTo(6))
+                .body("expiry_year", equalTo(2026))
+                .body("bin", equalTo("465910"))
+                .body("last4", equalTo("1157"))
+                .body("name", equalTo("Bruce Wayne"))
+                .body("billing_address.address_line1", equalTo("Checkout.com"))
+                .body("billing_address.address_line2", equalTo("90 Tottenham Court Road"))
+                .body("billing_address.city", equalTo("London"))
+                .body("billing_address.state", equalTo("st"))
+                .body("billing_address.zip", equalTo("W1T 4TJ"))
+                .body("billing_address.country", equalTo("GB"))
+                .body("phone.country_code", equalTo("+1"))
+                .body("phone.number", equalTo("415 555 2671"))
+                .header("Content-Type", "application/json; charset=utf-8")
+                .header("Connection", "keep-alive")
+                .log().all();
+    }
+
+    //Creating requestBody using external json file.
+    @Test(priority = 4)
+    void createToken4() throws FileNotFoundException {
+        File file = new File("src/test/java/resources/requestBody/createCardToken.json");
+        FileReader fileReader = new FileReader(file);
+        JSONTokener jsonTokener = new JSONTokener(fileReader);
+        JSONObject data = new JSONObject(jsonTokener);
+
+        given()
+                .contentType("application/json")
+                .header("Authorization","Bearer pk_sbox_s4gepzrfsicj2af7il4wb25fnm7")
+                .body(data.toString())
                 .when().post("https://api.sandbox.checkout.com/tokens")
                 .then().statusCode(201)
                 .body("expiry_month", equalTo(6))
