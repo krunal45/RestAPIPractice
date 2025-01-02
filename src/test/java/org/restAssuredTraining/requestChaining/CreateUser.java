@@ -2,13 +2,14 @@ package org.restAssuredTraining.requestChaining;
 
 import com.github.javafaker.Faker;
 import org.json.JSONObject;
+import org.testng.ITestContext;
 import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
 public class CreateUser {
 
     @Test
-    void testCreateUser(){
+    void testCreateUser(ITestContext context){
         Faker faker = new Faker();
         JSONObject data = new JSONObject();
 
@@ -30,5 +31,7 @@ public class CreateUser {
                 .jsonPath().getInt("id");
 
         System.out.println("ID > "+id);
+        context.getSuite().setAttribute("userId",id);
+        context.getSuite().setAttribute("accessToken",accessToken);
     }
 }

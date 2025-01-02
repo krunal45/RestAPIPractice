@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="RestAssuredAPIAutomation">
+    <test name="requestChainingTest">
+        <classes>
+            <class name="org.restAssuredTraining.requestChaining.CreateUser"/>
+            <class name="org.restAssuredTraining.requestChaining.GetUser"/>
+            <class name="org.restAssuredTraining.requestChaining.UpdateUser"/>
+            <class name="org.restAssuredTraining.requestChaining.DeleteUser"/>
+        </classes>
+    </test>
+</suite>

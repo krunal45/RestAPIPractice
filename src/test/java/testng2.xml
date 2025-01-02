@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="RestAssuredAPIAutomation">
+    <test name="CreateUser">
+        <classes>
+            <class name="org.restAssuredTraining.requestChaining.CreateUser"/>
+        </classes>
+    </test>
+    <test name="GetUser">
+        <classes>
+            <class name="org.restAssuredTraining.requestChaining.GetUser"/>
+        </classes>
+    </test>
+    <test name="UpdateUser">
+        <classes>
+            <class name="org.restAssuredTraining.requestChaining.UpdateUser"/>
+        </classes>
+    </test>
+    <test name="DeleteUser">
+        <classes>
+            <class name="org.restAssuredTraining.requestChaining.DeleteUser"/>
+        </classes>
+    </test>
+</suite>
